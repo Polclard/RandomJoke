@@ -5,7 +5,6 @@ import '../models/joke.dart';
 class ApiService {
   static const String baseUrl = "https://official-joke-api.appspot.com";
 
-  // Функција за сите типови на шеги
   static Future<List<String>> fetchJokeTypes() async {
     final response = await http.get(Uri.parse('$baseUrl/types'));
     if (response.statusCode == 200) {
@@ -15,7 +14,6 @@ class ApiService {
     }
   }
 
-  // Функција за шеги според тип
   static Future<List<Joke>> fetchJokesByType(String type) async {
     final response = await http.get(Uri.parse('$baseUrl/jokes/$type/ten'));
     if (response.statusCode == 200) {
@@ -26,7 +24,6 @@ class ApiService {
     }
   }
 
-  // Функција за рандом шега
   static Future<Joke> fetchRandomJoke() async {
     final response = await http.get(Uri.parse('$baseUrl/random_joke'));
     if (response.statusCode == 200) {
